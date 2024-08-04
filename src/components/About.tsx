@@ -14,7 +14,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className='w-9/12 xl:text-left text-center'>
-                        <p className='text-wrap'>Hello! I'm Guli Ahmedova, an innovative frontend developer with a passion for creating responsive and user-friendly web interfaces. I specialize in HTML, CSS, JavaScript, and React, and have hands-on experience with a variety of tools and frameworks such as Redux Toolkit, Axios, Zustand, Next.js and etc.</p>
+                        <p className='text-wrap'>Hello! I am Guli Ahmedova, an innovative frontend developer with a passion for creating responsive and user-friendly web interfaces. I specialize in HTML, CSS, JavaScript, and React, and have hands-on experience with a variety of tools and frameworks such as Redux Toolkit, Axios, Zustand, Next.js and etc.</p>
                         <div className='mt-6'>
                             <h3 className='font-bold text-slate-300 uppercase mb-2 select-none'>Education</h3>
                             <p className='text-wrap'>Bachelor of Computer Science
