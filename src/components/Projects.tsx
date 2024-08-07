@@ -13,7 +13,7 @@ SwiperCore.use([Navigation]);
 
 const Projects = () => {
     return (
-        <section id="work" className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-space_cadet to-blue-900">
+        <section id="work" className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-space_cadet to-blue-900 shadow-2xl">
             <div className="w-10/12 relative">
                 <Swiper
                     className="multiple-slide-carousel"
