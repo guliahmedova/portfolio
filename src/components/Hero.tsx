@@ -23,7 +23,7 @@ const Hero = () => {
 
                 <div className="w-max mb-6">
                     <h1
-                        className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 lg:text-5xl text-2xl text-slate-300 font-bold text-center select-none">
+                        className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 lg:text-5xl text-xl text-slate-300 font-bold text-center select-none">
                         Creative Frontend Developer
                     </h1>
                 </div>

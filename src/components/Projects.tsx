@@ -37,6 +37,10 @@ const Projects = () => {
                             slidesPerView: 1,
                             spaceBetween: 0,
                         },
+                        456: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        }
                     }}
                 >
                     {projects?.map((p) => (

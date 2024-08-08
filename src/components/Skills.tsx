@@ -6,7 +6,7 @@ const Skills = () => {
     return (
         <section id="skills" className="min-h-screen w-full bg-gradient-to-tl from-indigo-900 to-indigo-950 shadow-2xl py-16">
             <div className="w-full h-full flex flex-col items-center justify-center">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 p-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 p-4">
                     {skills?.map((skill) => (
                         <Link href={skill.url} target="_blank" className="group flex flex-col items-center bg-indigo-800 p-4 rounded-lg shadow-2xl relative" key={skill.id}>
                             <div className="flex items-center justify-center mb-2">

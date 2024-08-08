@@ -183,7 +183,7 @@ const skills: Skill[] = [
         id: 21,
         title: 'REST API',
         icon: restApiIcon,
-        url: 'https://restfulapi.net/',
+        url: 'https://www.ibm.com/topics/rest-apis',
     },
     {
         id: 22,
