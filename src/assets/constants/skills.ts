@@ -162,7 +162,7 @@ const skills: Skill[] = [
         url: 'https://tailwindcss.com/',
     },
     {
-        id: 20,
+        id: 29292,
         title: 'Git',
         icon: gitIcon,
         url: 'https://git-scm.com/',
