@@ -1,30 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 .animated-background {
     background-size: 400%;
-
     -webkit-animation: animation 4s ease infinite;
     -moz-animation: animation 4s ease infinite;
     animation: animation 4s ease infinite;
 }
-
 @keyframes animation {
     0%,
     100% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
 }
-
 section {
     padding-top: 60px;
 }
-
 ::-webkit-scrollbar {
     width: 0;
 }
@@ -37,11 +31,28 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background: transparent;
 }
-
 .swiper-button-prev {
     font-size: 12px !important;
 }
-
 html {
     scroll-behavior: smooth;
+}
+.swiper-slide {
+    width: 100%;
+}
+.swiper-container {
+    overflow: hidden;
+}
+.swiper-slide {
+    overflow: hidden;
+}
+.swiper-slide {
+    transition: transform 0.3s ease;
+}
+.swiper-slide:hover {
+    transform: scale(1.05);
+}
+.swiper-slide {
+    padding: 0;
+    margin: 0;
 }

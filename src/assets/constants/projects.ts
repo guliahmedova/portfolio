@@ -1,5 +1,11 @@
-import { furniroCover, makepickCover, plastCover } from "@/assets/images/index";
+import {
+  furniroCover,
+  issueSolverCover,
+  makepickCover,
+  plastCover,
+} from "@/assets/images/index";
 import { StaticImageData } from "next/image";
+import { v4 as uuidv4 } from "uuid";
 
 export interface Project {
   id: string;
@@ -7,35 +13,42 @@ export interface Project {
   title: string;
   description: string;
   path: string;
-};
+}
 
 const frontendProjects: Project[] = [
   {
-    id: "111",
+    id: uuidv4(),
     image: furniroCover,
     title: "Furniro",
     description: "React, TypeScript, Axios, Vite",
     path: "https://furniro-chi.vercel.app/",
   },
   {
-    id: "222",
+    id: uuidv4(),
     image: plastCover,
     title: "Plast",
     description: "React, TypeScript, Axios, Vite",
     path: "https://plast.vercel.app/",
   },
   {
-    id: "333",
+    id: uuidv4(),
     image: makepickCover,
     title: "MakePick",
     description: "React, TypeScript, Tailwind, Vite",
     path: "https://make-pick.vercel.app/",
   },
+  {
+    id: uuidv4(),
+    image: issueSolverCover,
+    title: "Issue Solver",
+    description: "Next, TypeScript, Tailwind, Vite, SWR, Material UI, Zustand",
+    path: "https://issue-solver.vercel.app/",
+  },
 ];
 
 const fullstackProjects: Project[] = [
   {
-    id: "444",
+    id: uuidv4(),
     image: plastCover,
     title: "Fullstack Project 1",
     description: "React, Node.js, Express, MongoDB",
