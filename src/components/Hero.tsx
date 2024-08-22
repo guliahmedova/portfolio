@@ -7,7 +7,10 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div
+    <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
       className="animated-background | bg-space_cadet bg-gradient-to-r from-blue-950 to-indigo-900 w-full h-screen text-white animated-background via-space_cadet"
       id="home"
     >
@@ -52,7 +55,7 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
