@@ -1,28 +1,90 @@
+"use client";
+import { motion } from "framer-motion";
 
 const Contact = () => {
-    return (
-        <section className="bg-gradient-to-tr from-black to-indigo-950" id="contact">
-            <div className="py-8 lg:pb-5 mx-auto max-w-screen-md lg:px-0 px-4">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Get in touch</h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Looking for a frontend developer who’s passionate, dedicated, and ready to bring your ideas to life? Let’s connect! I’m excited to discuss how I can contribute to your team and help make your projects shine. Drop me a message and let’s explore how we can work together!</p>
-                <form action="#" className="space-y-8">
-                    <div>
-                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                        <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Send your best email here (no spam, promise!)" required />
-                    </div>
-                    <div>
-                        <label htmlFor="subject" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                        <input type="text" id="subject" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="The reason for your message" required />
-                    </div>
-                    <div className="sm:col-span-2">
-                        <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                        <textarea id="message" rows={8} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Tell me your thoughts" />
-                    </div>
-                    <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 bg-indigo-700 dark:focus:ring-primary-800">Send message</button>
-                </form>
-            </div>
-        </section>
-    )
-}
+  return (
+    <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-700 py-16" id="contact">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center">
+          <motion.h2
+            className="text-3xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Get in Touch
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white mb-8 text-center max-w-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            I’d love to hear from you! Whether you have a question, feedback, or
+            just want to say hello, feel free to drop me a message. I’ll get
+            back to you as soon as possible.
+          </motion.p>
+          <motion.div
+            className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <form
+              action="https://formspree.io/f/your-form-id" // Replace with your Formspree form ID
+              method="POST"
+              className="flex flex-col space-y-4"
+            >
+              <label className="flex flex-col">
+                <span className="text-gray-700">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="text-gray-700">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="text-gray-700">Subject</span>
+                <input
+                  type="text"
+                  name="subject"
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                />
+              </label>
+              <label className="flex flex-col">
+                <span className="text-gray-700">Message</span>
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                ></textarea>
+              </label>
+              <motion.button
+                type="submit"
+                className="bg-indigo-500 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-indigo-600 transition duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Send Message
+              </motion.button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Contact;

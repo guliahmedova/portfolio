@@ -1,32 +1,62 @@
-import bubbles from '@/assets/images/bubbles.svg';
-import girl from '@/assets/images/girl1.svg';
-import Image from "next/image";
+'use client'
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const About = () => {
     return (
-        <section className="bg-space_cadet py-10 xl:py-0 xl:h-screen w-full text-white text-lg font-medium flex flex-col items-center justify-center shadow-2xl" id="about">
-            <div className="w-10/12">
-                <div className="flex items-center xl:flex-row flex-col xl:gap-20 gap-10">
-                    <div className='xl:w-3/12 lg:w-5/12'>
-                        <div className="xl:w-full min-w-80 min-h-80 relative border border-slate-600 rounded-md shadow-md">
-                            <Image src={bubbles} className="absolute object-cover w-full h-full opacity-25" alt="bubbles" />
-                            <Image src={girl} className="absolute object-cover w-full h-full" alt="confident" />
-                        </div>
-                    </div>
-                    <div className='lg:w-9/12 xl:text-left text-center w-full'>
-                        <p className='text-wrap'>Hello! I am Guli Ahmedova, an innovative frontend developer with a passion for creating responsive and user-friendly web interfaces. I specialize in HTML, CSS, JavaScript, and React, and have hands-on experience with a variety of tools and frameworks such as Redux Toolkit, Axios, Zustand, Next.js and etc.</p>
-                        <div className='mt-6'>
-                            <h3 className='font-bold text-slate-300 uppercase mb-2 select-none'>Education</h3>
-                            <p className='text-wrap'>Bachelor of Computer Science
-                                Azerbaijan Technical University</p>
-                        </div>
-
-                        <button className='mt-6 bg-gradient-to-br from-blue-800 to-purple-800 shadow-lg rounded-full px-4 py-2'>Download CV</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+      <section className="bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 py-16" id="about">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col items-center">
+            <motion.h2
+              className="text-3xl font-bold mb-4 text-white select-none"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              About Me
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-200 mb-8 text-center max-w-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Hello! I’m Güli, a passionate frontend developer based in
+              Azerbaijan. With a strong background in React, TypeScript, and
+              Tailwind CSS, I thrive on creating beautiful, responsive web
+              applications. I believe in continuous learning and enjoy exploring
+              new technologies to enhance my skills. When I’m not coding, you
+              can find me filming videos, diving into algorithms, or working on
+              personal projects. I’m always eager to take on new challenges and
+              collaborate with like-minded individuals.
+            </motion.p>
+            <motion.div
+              className="flex space-x-4 mt-8"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <Link
+                href="https://www.linkedin.com/in/guli-ahmedova-5b8985256/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-4 bg-indigo-500 text-white rounded-lg shadow-lg hover:bg-indigo-600 transition duration-300"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="https://github.com/guliahmedova"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-4 bg-gray-800 text-white rounded-lg shadow-lg hover:bg-gray-900 transition duration-300"
+              >
+                GitHub
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    );
 }
 
 export default About;

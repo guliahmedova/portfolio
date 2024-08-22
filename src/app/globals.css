@@ -41,3 +41,7 @@ section {
 .swiper-button-prev {
     font-size: 12px !important;
 }
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,74 +1,80 @@
-"use client"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import SwiperCore from 'swiper';
-import { Navigation } from 'swiper/modules';
-import Image from 'next/image';
-import Link from 'next/link';
-import linkIcon from '@/assets/images/link.svg';
-import projects from '@/assets/constants/projects';
-    
-SwiperCore.use([Navigation]);
+"use client";
+import {
+  frontendProjects,
+  fullstackProjects,
+  Project,
+} from "@/assets/constants/projects";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Projects = () => {
-    return (
-        <section id="work" className="h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-space_cadet to-blue-900 shadow-2xl">
-            <div className="w-10/12 relative">
-                <Swiper
-                    className="multiple-slide-carousel"
-                    loop={true}
-                    slidesPerView={3}
-                    spaceBetween={20}
-                    navigation={{
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    }}
-                    breakpoints={{
-                        1920: {
-                            slidesPerView: 3,
-                            spaceBetween: 30,
-                        },
-                        1028: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                        },
-                        990: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        },
-                        456: {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                        }
-                    }}
-                >
-                    {projects?.map((p) => (
-                        <SwiperSlide key={p.id}>
-                            <div className="bg-indigo-50 rounded-2xl min-h-96 p-10 shadow-lg">
-                                <div className='w-full h-64 mx-auto'>
-                                    <Image src={p.image} alt='' className='w-full h-full object-contain' />
-                                </div>
-                                <div className='w-full border-t border-t-blue-200 pt-4'>
-                                    <Link href={p.path} target='_blank' className='font-bold text-xl mb-2 flex items-center gap-2 hover:underline'>
-                                        {p.title}
-                                        <Image src={linkIcon} className='w-6 h-6' alt='link icon' />
-                                    </Link>
-                                    <p className='select-none'>{p.description}</p>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                <div className="absolute flex justify-center items-center m-auto left-0 right-0 w-fit top-8">
-                    <button id="slider-button-left" className="swiper-button-prev group !p-2 flex justify-center items-center border border-blue-900 !text-blue-900 hover:!text-white !w-10 !h-10 after:!text-lg transition-all duration-500 rounded-full hover:bg-blue-800 !-translate-x-20 bg-indigo-50" data-carousel-prev>
-                    </button>
-                    <button id="slider-button-right" className="swiper-button-next group !p-2 flex justify-center items-center border border-blue-900 !text-blue-900 hover:!text-white !w-10 !h-10 after:!text-lg transition-all duration-500 rounded-full hover:bg-blue-800 !translate-x-20 bg-indigo-50" data-carousel-next>
-                    </button>
-                </div>
-            </div>
-        </section>
-    )
-};
+  const [activeTab, setActiveTab] = useState("frontend");
 
+  const renderProjects = (projects: Project[]) => {
+    return projects.map((project: Project) => (
+      <motion.div
+        key={project.id}
+        whileHover={{ scale: 1.05 }}
+        className="p-4 border rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
+      >
+        <img
+          src={project.image.src}
+          alt={project.title}
+          className="w-full h-48 object-cover rounded-t-lg"
+        />
+        <h3 className="text-xl font-semibold mt-4 text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-500">{project.description}</p>
+        <a
+          href={project.path}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 mt-4 inline-block"
+        >
+          Visit Project
+        </a>
+      </motion.div>
+    ));
+  };
+
+  return (
+    <div
+      className="container mx-auto py-8 bg-gradient-to-bl from-indigo-950 to-space_cadet"
+      id="work"
+    >
+      <div className="flex justify-center space-x-4 mb-8">
+        <button
+          onClick={() => setActiveTab("frontend")}
+          className={`py-2 px-4 rounded-lg ${
+            activeTab === "frontend"
+              ? "bg-indigo-500 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+        >
+          Frontend Projects
+        </button>
+        <button
+          onClick={() => setActiveTab("fullstack")}
+          className={`py-2 px-4 rounded-lg ${
+            activeTab === "fullstack"
+              ? "bg-indigo-500 text-white"
+              : "bg-gray-200 text-gray-700"
+          }`}
+        >
+          Fullstack Projects
+        </button>
+      </div>
+
+      <div className="px-4 lg:px-16">
+        {" "}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {" "}
+          {activeTab === "frontend" && renderProjects(frontendProjects)}
+          {activeTab === "fullstack" && renderProjects(fullstackProjects)}
+        </div>
+      </div>
+    </div>
+  );
+};
 export default Projects;
