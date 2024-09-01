@@ -1,61 +1,89 @@
-"use client";
-import b1 from "@/assets/images/b1.svg";
-import b2 from "@/assets/images/b2.svg";
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import layer from "@/assets/images/layer.png";
+import HeroOrbit from "./HeroOrbit";
 
 const Hero = () => {
   return (
-    <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-      className="animated-background | bg-space_cadet bg-gradient-to-r from-blue-950 to-indigo-900 w-full h-screen text-white animated-background via-space_cadet"
+    <div
+      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
       id="home"
     >
-      <div className="px-10 py-4 w-full h-full flex flex-col justify-center items-center relative">
-        <Image
-          src={b1}
-          alt="bubble"
-          className="absolute top-12 left-0 m-4 w-28 h-w-28 opacity-50"
-        />
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
+        <div
+          className="absolute inset-0 -z-30 opacity-5"
+          style={{
+            backgroundImage: `url(${layer})`,
+          }}
+        ></div>
 
-        <Image
-          src={b2}
-          alt="bubble"
-          className="absolute bottom-0 right-0 m-4 w-24 h-24 opacity-50"
-        />
+        <div className="size-[620px] hero-ring"></div>
+        <div className="size-[820px] hero-ring"></div>
+        <div className="size-[1020px] hero-ring"></div>
+        <div className="size-[1220px] hero-ring"></div>
 
-        <div className="w-max mb-6">
-          <h1 className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white pr-5 lg:text-5xl text-xl text-slate-300 font-bold text-center select-none">
-            Creative Frontend Developer
-          </h1>
+        <HeroOrbit size={800} rotation={-60}>
+          <span className="size-28"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={550} rotation={20}>
+          <span className="size-12"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={590} rotation={90}>
+          <span className="size-8"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={430} rotation={-14}>
+          <span className="size-8 opacity-20"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={440} rotation={80}>
+          <span className="size-5 opacity-20"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={530} rotation={180}>
+          <span className="size-10 opacity-20"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={710} rotation={150}>
+          <span className="size-14 opacity-20"> &#10023;</span>
+        </HeroOrbit>
+        <HeroOrbit size={720} rotation={85}>
+          <span className="size-3 opacity-20"> &#10023;</span>
+        </HeroOrbit>
+      </div>
+
+      <div className="container">
+        <div className="flex flex-col items-center">
+          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg select-none">
+            <div className="bg-green-500 size-2.5 rounded-full relative">
+              <div className="bg-green-500 absolute inset-0 animate-ping rounded-full"></div>
+            </div>
+            <div className="text-sm font-medium select-none">
+              Open to new project opportunities
+            </div>
+          </div>
         </div>
-
-        <p className="lg:text-xl font-medium text-wrap text-center select-none">
-          Passionate about building responsive, user-friendly websites with a
-          focus on modern technologies and clean design
-        </p>
-
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 mt-6">
-          <motion.div
-            className="bg-indigo-600 rounded-full py-3 px-6 font-semibold text-lg text-white hover:bg-indigo-700 transition duration-300 text-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        <div className="max-w-lg mx-auto">
+          <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide select-none">
+            Designing Outstanding User Experiences
+          </h1>
+          <p className="mt-4 text-center text-white/60 select-none md:text-lg">
+            Passionate about building responsive, user-friendly websites with a
+            focus on modern technologies
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl cursor-pointer relative"
           >
-            <Link href="#work">Explore My Projects</Link>
-          </motion.div>
-          <motion.div
-            className="bg-indigo-600 rounded-full py-3 px-6 font-semibold text-lg text-white hover:bg-indigo-700 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            <span className="font-semibold">Explore My Work</span>
+            <span>&#8595;</span>
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl cursor-pointer relative"
           >
-            <Link href="#contact">Contact Me for Your Next Project</Link>
-          </motion.div>
+            <span>👋</span>
+            <span className="font-semibold">Let's Connect</span>
+          </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

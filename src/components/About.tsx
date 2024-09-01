@@ -15,7 +15,7 @@ const About = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
       transition={{ duration: 0.8 }}
-      className="bg-gradient-to-r from-blue-950 via-gray-900 to-indigo-950 py-16"
+      className="py-16"
       id="about"
     >
       <div className="container mx-auto px-4">

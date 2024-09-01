@@ -1,61 +1,27 @@
-'use client'
-import menu from "@/assets/images/menu.svg";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-
 const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-
   return (
-    <header className="bg-space_cadet shadow-lg text-white fixed top-0 left-0 right-0 z-10 text-lg">
-      <div className="px-10 py-4">
-        <motion.button
-          className="lg:w-10 lg:h-10 w-9 h-9 cursor-pointer lg:hidden bg-slate-600 rounded-md block ml-auto"
-          onClick={() => setOpenMenu((prevState) => !prevState)}
-          animate={{ rotate: openMenu ? 90 : 0 }}
-          transition={{ duration: 0.3 }}
+    <div className="flex justify-center items-center fixed left-0 right-0 top-3 z-10">
+      <nav className="flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/10 backdrop-blur">
+        <a href="#home" className="nav-item">
+          Home
+        </a>
+        <a href="#projects" className="nav-item">
+          Projects
+        </a>
+        <a href="#skills" className="nav-item">
+          Skills
+        </a>
+        <a href="#about" className="nav-item">
+          About
+        </a>
+        <a
+          href="#contact"
+          className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
         >
-          <Image src={menu} alt="menu" />
-        </motion.button>
-
-        <div className={`lg:block ${openMenu ? "" : "hidden"} w-full`}>
-          <div className="flex justify-around items-center lg:flex-row lg:gap-0 flex-col gap-6 w-full">
-            <Link
-              className="hover:text-brilliant_rose transition-all ease-in-out delay-200"
-              href="#home"
-            >
-              Home
-            </Link>
-            <Link
-              className="hover:text-brilliant_rose transition-all ease-in-out delay-200"
-              href="#about"
-            >
-              About
-            </Link>
-            <Link
-              className="hover:text-brilliant_rose transition-all ease-in-out delay-200"
-              href="#work"
-            >
-              Projects
-            </Link>
-            <Link
-              className="hover:text-brilliant_rose transition-all ease-in-out delay-200"
-              href="#skills"
-            >
-              Skills
-            </Link>
-            <Link
-              className="hover:text-brilliant_rose transition-all ease-in-out delay-200"
-              href="#contact"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-      </div>
-    </header>
+          Contact
+        </a>
+      </nav>
+    </div>
   );
 };
 

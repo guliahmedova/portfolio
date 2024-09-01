@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
-    <section className="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-700 py-16" id="contact">
+    <section className="py-16" id="contact">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           <motion.h2
@@ -20,9 +20,9 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            I’d love to hear from you! Whether you have a question, feedback, or
-            just want to say hello, feel free to drop me a message. I’ll get
-            back to you as soon as possible.
+            I'm excited to connect with you! Whether you have a question,
+            feedback, or just want to chat, don't hesitate to reach out. I'll
+            respond as soon as I can.
           </motion.p>
           <motion.div
             className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg"
@@ -72,7 +72,7 @@ const Contact = () => {
               </label>
               <motion.button
                 type="submit"
-                className="bg-indigo-500 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-indigo-600 transition duration-300"
+                className="bg-gray-800 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}

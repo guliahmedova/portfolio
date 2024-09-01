@@ -15,7 +15,7 @@ const Projects = () => {
       <motion.div
         key={project.id}
         whileHover={{ scale: 1.05 }}
-        className="p-4 border rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
+        className="p-4 border border-gray-500 rounded-lg shadow-2xl hover:shadow-2xl transition duration-300"
       >
         <img
           src={project.image.src}
@@ -30,7 +30,7 @@ const Projects = () => {
           href={project.path}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 mt-4 inline-block"
+          className="text-indigo-500 mt-4 inline-block"
         >
           Visit Project
         </a>
@@ -39,16 +39,17 @@ const Projects = () => {
   };
 
   return (
-    <div
-      className="container mx-auto py-8 bg-gradient-to-bl from-indigo-950 to-space_cadet"
-      id="work"
-    >
-      <div className="flex justify-center space-x-4 mb-8">
+    <div className="container mx-auto py-8" id="projects">
+      <h1 className="text-2xl md:text-4xl text-center tracking-wide select-none font-medium">
+        Featured Projects
+      </h1>
+
+      <div className="flex justify-center space-x-4 mb-8 mt-10">
         <button
           onClick={() => setActiveTab("frontend")}
           className={`py-2 px-4 rounded-lg ${
             activeTab === "frontend"
-              ? "bg-indigo-500 text-white"
+              ? "bg-gray-500 border border-white text-white"
               : "bg-gray-200 text-gray-700"
           }`}
         >
@@ -58,7 +59,7 @@ const Projects = () => {
           onClick={() => setActiveTab("fullstack")}
           className={`py-2 px-4 rounded-lg ${
             activeTab === "fullstack"
-              ? "bg-indigo-500 text-white"
+              ? "bg-gray-500 border border-white text-white"
               : "bg-gray-200 text-gray-700"
           }`}
         >
@@ -67,9 +68,7 @@ const Projects = () => {
       </div>
 
       <div className="px-4 lg:px-16">
-        {" "}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {" "}
           {activeTab === "frontend" && renderProjects(frontendProjects)}
           {activeTab === "fullstack" && renderProjects(fullstackProjects)}
         </div>
