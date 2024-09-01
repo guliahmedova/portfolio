@@ -5,6 +5,7 @@ import {
   Project,
 } from "@/assets/constants/projects";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 
 const Projects = () => {
@@ -17,8 +18,10 @@ const Projects = () => {
         whileHover={{ scale: 1.05 }}
         className="p-4 border border-gray-500 rounded-lg shadow-2xl hover:shadow-2xl transition duration-300"
       >
-        <img
+        <Image
           src={project.image.src}
+          width={100}
+          height={100}
           alt={project.title}
           className="w-full h-48 object-cover rounded-t-lg"
         />

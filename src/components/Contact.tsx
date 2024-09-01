@@ -1,7 +1,38 @@
 "use client";
 import { motion } from "framer-motion";
+import { FormEvent, useState } from "react";
 
 const Contact = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    formData.append("access_key", "29fe983a-ec37-417b-81fc-52a0b5879e4b");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+      form.reset();
+    }
+  }
+
   return (
     <section className="py-16" id="contact">
       <div className="container mx-auto px-4">
@@ -20,8 +51,8 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            I'm excited to connect with you! Whether you have a question,
-            feedback, or just want to chat, don't hesitate to reach out. I'll
+            I am excited to connect with you! Whether you have a question,
+            feedback, or just want to chat, do not hesitate to reach out. I will
             respond as soon as I can.
           </motion.p>
           <motion.div
@@ -31,7 +62,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
           >
             <form
-              action="https://formspree.io/f/your-form-id" // Replace with your Formspree form ID
+              onSubmit={handleSubmit}
               method="POST"
               className="flex flex-col space-y-4"
             >
@@ -41,7 +72,7 @@ const Contact = () => {
                   type="text"
                   name="name"
                   required
-                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none text-gray-950 focus:ring-2 focus:ring-gray-500 transition duration-300"
                 />
               </label>
               <label className="flex flex-col">
@@ -50,7 +81,7 @@ const Contact = () => {
                   type="email"
                   name="email"
                   required
-                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none text-gray-950 focus:ring-2 focus:ring-gray-500 transition duration-300"
                 />
               </label>
               <label className="flex flex-col">
@@ -58,7 +89,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="subject"
-                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none text-gray-950 focus:ring-2 focus:ring-gray-500 transition duration-300"
                 />
               </label>
               <label className="flex flex-col">
@@ -67,7 +98,7 @@ const Contact = () => {
                   name="message"
                   rows={4}
                   required
-                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
+                  className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none text-gray-950 focus:ring-2 focus:ring-gray-500 transition duration-300"
                 ></textarea>
               </label>
               <motion.button
@@ -81,6 +112,32 @@ const Contact = () => {
               </motion.button>
             </form>
           </motion.div>
+          {showToast && (
+            <div
+              id="toast-simple"
+              className="flex items-center w-full max-w-xs p-4 mt-4 space-x-4 rtl:space-x-reverse text-gray-500 bg-gray-800 rtl:divide-x-reverse rounded-lg shadow dark:text-gray-400 fixed top-0 right-0"
+              role="alert"
+            >
+              <svg
+                className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 20"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
+                />
+              </svg>
+              <div className="ps-4 text-sm font-normal">
+                Message sent successfully.
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
