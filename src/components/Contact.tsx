@@ -1,10 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal);
 
 const Contact = () => {
-  const [showToast, setShowToast] = useState(false);
-
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -27,9 +28,12 @@ const Contact = () => {
 
     const result = await response.json();
     if (result.success) {
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
       form.reset();
+      MySwal.fire({
+        title: "Success!",
+        text: "Message sent successfully!",
+        icon: "success",
+      });
     }
   }
 
@@ -112,32 +116,6 @@ const Contact = () => {
               </motion.button>
             </form>
           </motion.div>
-          {showToast && (
-            <div
-              id="toast-simple"
-              className="flex items-center w-full max-w-xs p-4 mt-4 space-x-4 rtl:space-x-reverse text-gray-500 bg-gray-800 rtl:divide-x-reverse rounded-lg shadow dark:text-gray-400 fixed top-0 right-0"
-              role="alert"
-            >
-              <svg
-                className="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 20"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
-                />
-              </svg>
-              <div className="ps-4 text-sm font-normal">
-                Message sent successfully.
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>

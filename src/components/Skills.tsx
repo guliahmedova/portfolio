@@ -9,7 +9,7 @@ const Skills = () => {
           <h1 className="text-2xl md:text-4xl text-center tracking-wide select-none font-medium">
             Skills
           </h1>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 p-4 mt-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 mt-10">
             {skills?.map((skill) => (
               <Link
                 href={skill.url}
