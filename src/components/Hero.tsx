@@ -61,7 +61,7 @@ const Hero = () => {
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide select-none">
             Designing Outstanding User Experiences
           </h1>
-          <p className="mt-4 text-center text-white/60 select-none md:text-lg">
+          <p className="mt-4 text-center text-white/60 select-none md:text-lg lg:px-0 px-4">
             Passionate about building responsive, user-friendly websites with a
             focus on modern technologies
           </p>

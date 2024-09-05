@@ -42,7 +42,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center">
           <motion.h2
-            className="text-3xl font-bold text-white mb-4"
+            className="text-2xl md:text-4xl text-center tracking-wide select-none font-medium mb-10"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
