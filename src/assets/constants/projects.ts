@@ -1,4 +1,5 @@
 import {
+  angularAdminCover,
   bookingPanelCover,
   brandCover,
   datavistaCover,
@@ -11,6 +12,7 @@ import {
   manageCover,
   miniFrontendProjects,
   plastCover,
+  filteringCover,
 } from "@/assets/images/index";
 import { v4 as uuidv4 } from "uuid";
 
@@ -29,6 +31,13 @@ const frontendProjects: Project[] = [
     title: "Furniro",
     description: "React, TypeScript, Axios, Vite",
     path: "https://furniro-chi.vercel.app/",
+  },
+  {
+    id: uuidv4(),
+    image: angularAdminCover,
+    title: "Angular Admin Panel",
+    description: "Angular 18",
+    path: "https://angular-admin-panel-sigma.vercel.app/login",
   },
   {
     id: uuidv4(),
@@ -60,6 +69,13 @@ const frontendProjects: Project[] = [
   },
   {
     id: uuidv4(),
+    image: filteringCover,
+    title: "Filtering",
+    description: "NextJs, React-Query, TailwindCss",
+    path: "https://filter-products-green.vercel.app/",
+  },
+  {
+    id: uuidv4(),
     image: miniFrontendProjects,
     title: "Html, Css and Js Projects",
     description: "HTML5, CSS, JavaScript",
@@ -75,7 +91,7 @@ const frontendProjects: Project[] = [
   {
     id: uuidv4(),
     image: dsiCover,
-    title: "Brand",
+    title: "DSI",
     description: "React",
     path: "https://dsi-o6e9.vercel.app/",
   },

@@ -1,3 +1,4 @@
+export { default as angularAdminCover } from "./angularadmin.png";
 export { default as bookingPanelCover } from "./bookingpanel.png";
 export { default as brandCover } from "./brand.png";
 export { default as datavistaCover } from "./datavista.png";
@@ -10,3 +11,4 @@ export { default as makepickCover } from "./makepick.png";
 export { default as manageCover } from "./manage.png";
 export { default as miniFrontendProjects } from "./mini.png";
 export { default as plastCover } from "./plast.png";
+export { default as filteringCover } from "./filtering.png";
