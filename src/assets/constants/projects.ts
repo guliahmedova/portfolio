@@ -13,6 +13,7 @@ import {
   miniFrontendProjects,
   plastCover,
   filteringCover,
+  tmdbCover,
 } from "@/assets/images/index";
 import { v4 as uuidv4 } from "uuid";
 
@@ -31,6 +32,13 @@ const frontendProjects: Project[] = [
     title: "Furniro",
     description: "React, TypeScript, Axios, Vite",
     path: "https://furniro-chi.vercel.app/",
+  },
+  {
+    id: uuidv4(),
+    image: tmdbCover,
+    title: "TMDb Clone",
+    description: "React, Vite, Tailwind CSS, Axios, Redux Tookit",
+    path: "https://tmdb-pearl.vercel.app/",
   },
   {
     id: uuidv4(),

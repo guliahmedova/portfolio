@@ -12,3 +12,4 @@ export { default as manageCover } from "./manage.png";
 export { default as miniFrontendProjects } from "./mini.png";
 export { default as plastCover } from "./plast.png";
 export { default as filteringCover } from "./filtering.png";
+export { default as tmdbCover } from "./tmdb.png";
