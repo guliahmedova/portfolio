@@ -4,6 +4,8 @@ import {
   brandCover,
   datavistaCover,
   dsiCover,
+  filteringCover,
+  formStepperCover,
   furniroCover,
   imgSearchCover,
   issueSolverCover,
@@ -12,7 +14,6 @@ import {
   manageCover,
   miniFrontendProjects,
   plastCover,
-  filteringCover,
   tmdbCover,
 } from "@/assets/images/index";
 import { v4 as uuidv4 } from "uuid";
@@ -123,6 +124,13 @@ const frontendProjects: Project[] = [
     title: "Manage",
     description: "HTML, CSS",
     path: "https://manage-henna.vercel.app/",
+  },
+  {
+    id: uuidv4(),
+    image: formStepperCover,
+    title: "React Form Stepper",
+    description: "React, TailwindCSS, TypeScript",
+    path: "https://react-form-stepper-phi.vercel.app/",
   },
   {
     id: uuidv4(),
